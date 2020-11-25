@@ -683,7 +683,8 @@
    * Do not activate settings that the probe might not understand. Clones might misunderstand
    * advanced commands.
    *
-   * Note: If the probe is not deploying, do a "Reset" and "Self-Test" and then check the
+   * Note: If the
+   *  is not deploying, do a "Reset" and "Self-Test" and then check the
    *       wiring of the BROWN, RED and ORANGE wires.
    *
    * Note: If the trigger signal of your probe is not being recognized, it has been very often
@@ -1121,7 +1122,7 @@
 
 // Add Probe Z Offset calibration to the Z Probe Offsets menu
 #if HAS_BED_PROBE
-//#define PROBE_OFFSET_WIZARD
+#define PROBE_OFFSET_WIZARD
 #if ENABLED(PROBE_OFFSET_WIZARD)
 #define PROBE_OFFSET_START -4.0 // Estimated nozzle-to-probe Z offset, plus a little extra
 //#define PROBE_OFFSET_WIZARD_XY_POS XY_CENTER // Set a convenient position to do the measurement
@@ -1676,15 +1677,15 @@
 #if ENABLED(DOUBLECLICK_FOR_Z_BABYSTEPPING)
 #define DOUBLECLICK_MAX_INTERVAL 1250 // Maximum interval between clicks, in milliseconds. \
                                       // Note: Extra time may be added to mitigate controller latency.
-//#define MOVE_Z_WHEN_IDLE              // Jump to the move Z menu on doubleclick when printer is idle.
+#define MOVE_Z_WHEN_IDLE              // Jump to the move Z menu on doubleclick when printer is idle.
 #if ENABLED(MOVE_Z_WHEN_IDLE)
 #define MOVE_Z_IDLE_MULTIPLICATOR 1 // Multiply 1mm by this factor for the move step size.
 #endif
 #endif
 
-//#define BABYSTEP_DISPLAY_TOTAL          // Display total babysteps since last G28
+#define BABYSTEP_DISPLAY_TOTAL // Display total babysteps since last G28
 
-//#define BABYSTEP_ZPROBE_OFFSET          // Combine M851 Z and Babystepping
+#define BABYSTEP_ZPROBE_OFFSET // Combine M851 Z and Babystepping
 #if ENABLED(BABYSTEP_ZPROBE_OFFSET)
 //#define BABYSTEP_HOTEND_Z_OFFSET      // For multiple hotends, babystep relative Z offsets
 #define BABYSTEP_ZPROBE_GFX_OVERLAY // Enable graphical overlay on Z-offset editor
