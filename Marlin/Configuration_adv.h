@@ -187,7 +187,7 @@
  */
 #if ENABLED(THERMAL_PROTECTION_HOTENDS)
 #define THERMAL_PROTECTION_PERIOD 60    // Seconds
-#define THERMAL_PROTECTION_HYSTERESIS 6 // Degrees Celsius
+#define THERMAL_PROTECTION_HYSTERESIS 8 // Degrees Celsius
 
 //#define ADAPTIVE_FAN_SLOWING              // Slow part cooling fan if temperature drops
 #if BOTH(ADAPTIVE_FAN_SLOWING, PIDTEMP)
@@ -206,8 +206,8 @@
    * and/or decrease WATCH_TEMP_INCREASE. WATCH_TEMP_INCREASE should not be set
    * below 2.
    */
-#define WATCH_TEMP_PERIOD 40  // Seconds
-#define WATCH_TEMP_INCREASE 2 // Degrees Celsius
+#define WATCH_TEMP_PERIOD 50  // Seconds
+#define WATCH_TEMP_INCREASE 4 // Degrees Celsius
 #endif
 
 /**
@@ -696,7 +696,7 @@
 
 // Safety: The probe needs time to recognize the command.
 //         Minimum command delay (ms). Enable and increase if needed.
-//#define BLTOUCH_DELAY 500
+#define BLTOUCH_DELAY 500
 
 /**
    * Settings for BLTOUCH Classic 1.2, 1.3 or BLTouch Smart 1.0, 2.0, 2.2, 3.0, 3.1, and most clones:
@@ -704,7 +704,7 @@
 
 // Feature: Switch into SW mode after a deploy. It makes the output pulse longer. Can be useful
 //          in special cases, like noisy or filtered input configurations.
-//#define BLTOUCH_FORCE_SW_MODE
+// #define BLTOUCH_FORCE_SW_MODE
 
 /**
    * Settings for BLTouch Smart 3.0 and 3.1
@@ -722,7 +722,7 @@
    * differs, a mode set eeprom write will be completed at initialization.
    * Use the option below to force an eeprom write to a V3.1 probe regardless.
    */
-//#define BLTOUCH_SET_5V_MODE
+#define BLTOUCH_SET_5V_MODE
 
 /**
    * Safety: Activate if connecting a probe with an unknown voltage mode.
@@ -741,7 +741,7 @@
 //#define BLTOUCH_HS_MODE
 
 // Safety: Enable voltage mode settings in the LCD menu.
-//#define BLTOUCH_LCD_VOLTAGE_MENU
+#define BLTOUCH_LCD_VOLTAGE_MENU
 
 #endif // BLTOUCH
 
@@ -830,10 +830,10 @@
 #define TRAMMING_POINT_NAME_4 "Back-Left"
 
 #define RESTORE_LEVELING_AFTER_G35 // Enable to restore leveling setup after operation
-//#define REPORT_TRAMMING_MM          // Report Z deviation (mm) for each point relative to the first
+#define REPORT_TRAMMING_MM          // Report Z deviation (mm) for each point relative to the first
 
-//#define ASSISTED_TRAMMING_MENU_ITEM // Add a menu item to run G35 Assisted Tramming (MarlinUI)
-//#define ASSISTED_TRAMMING_WIZARD    // Make the menu item open a Tramming Wizard sub-menu
+#define ASSISTED_TRAMMING_MENU_ITEM // Add a menu item to run G35 Assisted Tramming (MarlinUI)
+#define ASSISTED_TRAMMING_WIZARD    // Make the menu item open a Tramming Wizard sub-menu
 //#define ASSISTED_TRAMMING_WAIT_POSITION { X_CENTER, Y_CENTER, 30 } // Move the nozzle out of the way for adjustment
 
 /**
@@ -1670,7 +1670,7 @@
 //#define BABYSTEP_XY                     // Also enable X/Y Babystepping. Not supported on DELTA!
 #define BABYSTEP_INVERT_Z false // Change if Z babysteps should go the other way
 //#define BABYSTEP_MILLIMETER_UNITS       // Specify BABYSTEP_MULTIPLICATOR_(XY|Z) in mm instead of micro-steps
-#define BABYSTEP_MULTIPLICATOR_Z 20 // (steps or mm) Steps or millimeter distance for each Z babystep
+#define BABYSTEP_MULTIPLICATOR_Z 10 // (steps or mm) Steps or millimeter distance for each Z babystep
 #define BABYSTEP_MULTIPLICATOR_XY 1 // (steps or mm) Steps or millimeter distance for each XY babystep
 
 #define DOUBLECLICK_FOR_Z_BABYSTEPPING // Double-click on the Status Screen for Z Babystepping.
@@ -1714,7 +1714,7 @@
 //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
 #define LIN_ADVANCE_K 0.05 // Unit: mm compression per 1mm/s extruder speed
 //#define LA_DEBUG            // If enabled, this will generate debug information output over USB.
-//#define EXPERIMENTAL_SCURVE // Enable this option to permit S-Curve Acceleration
+#define EXPERIMENTAL_SCURVE // Enable this option to permit S-Curve Acceleration
 #endif
 
 // @section leveling

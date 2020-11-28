@@ -657,7 +657,7 @@
 //#define ENDSTOPPULLUP_XMIN
 //#define ENDSTOPPULLUP_YMIN
 //#define ENDSTOPPULLUP_ZMIN
-// #define ENDSTOPPULLUP_ZMIN_PROBE
+#define ENDSTOPPULLUP_ZMIN_PROBE
 #endif
 
 // Enable pulldown for all endstops to prevent a floating state
@@ -674,13 +674,13 @@
 #endif
 
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
-#define X_MIN_ENDSTOP_INVERTING false       // Set to true to invert the logic of the endstop.
-#define Y_MIN_ENDSTOP_INVERTING false       // Set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING false       // Set to true to invert the logic of the endstop.
-#define X_MAX_ENDSTOP_INVERTING false       // Set to true to invert the logic of the endstop.
-#define Y_MAX_ENDSTOP_INVERTING false       // Set to true to invert the logic of the endstop.
-#define Z_MAX_ENDSTOP_INVERTING false       // Set to true to invert the logic of the endstop.
-#define Z_MIN_PROBE_ENDSTOP_INVERTING false // Set to true to invert the logic of the probe.
+#define X_MIN_ENDSTOP_INVERTING false      // Set to true to invert the logic of the endstop.
+#define Y_MIN_ENDSTOP_INVERTING false      // Set to true to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING false      // Set to true to invert the logic of the endstop.
+#define X_MAX_ENDSTOP_INVERTING false      // Set to true to invert the logic of the endstop.
+#define Y_MAX_ENDSTOP_INVERTING false      // Set to true to invert the logic of the endstop.
+#define Z_MAX_ENDSTOP_INVERTING false      // Set to true to invert the logic of the endstop.
+#define Z_MIN_PROBE_ENDSTOP_INVERTING true // Set to true to invert the logic of the probe.
 
 /**
  * Stepper Drivers
@@ -719,7 +719,7 @@
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
-//#define ENDSTOP_INTERRUPTS_FEATURE
+// #define ENDSTOP_INTERRUPTS_FEATURE
 
 /**
  * Endstop Noise Threshold
@@ -865,7 +865,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-// #define S_CURVE_ACCELERATION
+#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -1033,13 +1033,13 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 5
+#define PROBING_MARGIN 10
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_SPEED (133 * 60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
+#define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z / 3
 
 // Feedrate (mm/min) for the "accurate" probe of each point
 #define Z_PROBE_SPEED_SLOW (Z_PROBE_SPEED_FAST / 2)
@@ -1097,11 +1097,11 @@
  * These options are most useful for the BLTouch probe, but may also improve
  * readings with inductive probes and piezo sensors.
  */
-//#define PROBING_HEATERS_OFF       // Turn heaters off when probing
+// #define PROBING_HEATERS_OFF // Turn heaters off when probing
 #if ENABLED(PROBING_HEATERS_OFF)
 //#define WAIT_FOR_BED_HEATER     // Wait for bed to heat back up between probes (to improve accuracy)
 #endif
-//#define PROBING_FANS_OFF          // Turn fans off when probing
+// #define PROBING_FANS_OFF // Turn fans off when probing
 //#define PROBING_STEPPERS_OFF      // Turn steppers off (unless needed to hold position) when probing
 //#define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors
 
@@ -1165,8 +1165,8 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 235
-#define Y_BED_SIZE 235
+#define X_BED_SIZE 230
+#define Y_BED_SIZE 230
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS -17
@@ -1332,7 +1332,7 @@
  * Turn on with the command 'M111 S32'.
  * NOTE: Requires a lot of PROGMEM!
  */
-#define DEBUG_LEVELING_FEATURE
+// #define DEBUG_LEVELING_FEATURE
 
 #if ANY(MESH_BED_LEVELING, AUTO_BED_LEVELING_BILINEAR, AUTO_BED_LEVELING_UBL)
 // Gradually reduce leveling correction until a set height is reached,
@@ -1364,7 +1364,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
 // Set the number of grid points per dimension.
-#define GRID_MAX_POINTS_X 4
+#define GRID_MAX_POINTS_X 5
 #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
 // Probe along the Y axis, advancing X after each column
@@ -1380,7 +1380,7 @@
 // Experimental Subdivision of the grid by Catmull-Rom method.
 // Synthesizes intermediate points to produce a more detailed mesh.
 //
-//#define ABL_BILINEAR_SUBDIVISION
+#define ABL_BILINEAR_SUBDIVISION
 #if ENABLED(ABL_BILINEAR_SUBDIVISION)
 // Number of subdivisions between probe points
 #define BILINEAR_SUBDIVISIONS 3
