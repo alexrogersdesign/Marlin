@@ -830,7 +830,7 @@
 #define TRAMMING_POINT_NAME_4 "Back-Left"
 
 #define RESTORE_LEVELING_AFTER_G35 // Enable to restore leveling setup after operation
-#define REPORT_TRAMMING_MM          // Report Z deviation (mm) for each point relative to the first
+#define REPORT_TRAMMING_MM         // Report Z deviation (mm) for each point relative to the first
 
 #define ASSISTED_TRAMMING_MENU_ITEM // Add a menu item to run G35 Assisted Tramming (MarlinUI)
 #define ASSISTED_TRAMMING_WIZARD    // Make the menu item open a Tramming Wizard sub-menu
@@ -1124,8 +1124,8 @@
 #if HAS_BED_PROBE
 #define PROBE_OFFSET_WIZARD
 #if ENABLED(PROBE_OFFSET_WIZARD)
-#define PROBE_OFFSET_START -4.0 // Estimated nozzle-to-probe Z offset, plus a little extra
-//#define PROBE_OFFSET_WIZARD_XY_POS XY_CENTER // Set a convenient position to do the measurement
+#define PROBE_OFFSET_START -4.0              // Estimated nozzle-to-probe Z offset, plus a little extra
+#define PROBE_OFFSET_WIZARD_XY_POS XY_CENTER // Set a convenient position to do the measurement
 #endif
 #endif
 
